@@ -1,13 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-secondary">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-link">
-            <a href="#" class="navbar-brand" routerLink="/">Home</a>
-        </li>
-        <li class="nav-link">
-            <a href="#" class="navbar-brand" routerLink="/sobre">Sobre</a>
-        </li>
-        <li class="nav-link">
-            <a href="#" class="navbar-brand" routerLink="/contato">Contato</a>
+<nav >
+    <ul>
+        <li routerLinkActive="destaque" *ngFor="let item of itens">
+            <a routerLink="{{item.route}}">{{item.label}}</a>
         </li>
     </ul>
 </nav>

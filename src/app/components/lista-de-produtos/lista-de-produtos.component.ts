@@ -25,10 +25,13 @@ export class ListaDeProdutosComponent implements OnInit {
 
   listaDoGrupo(id: number) {
     // console.log(id)
-    this.produtosExibidos = this.produtos.filter(
-      produto => produto.cod_grupo == id
-    )
+    if(id!==0){
+      this.produtosExibidos = this.produtos.filter(
+        produto => produto.cod_grupo == id)
+    }else{
+      this.produtosExibidos=this.produtos;
    }
+  }
 
   ngOnInit(): void {
   }

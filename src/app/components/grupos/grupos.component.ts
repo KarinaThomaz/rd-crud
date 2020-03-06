@@ -13,20 +13,17 @@ export class GruposComponent implements OnInit {
   // evento criado para selecionar o grupo criado
   @Output() grupoClicado = new EventEmitter()
 
+  private grupoTodo = new Grupo(0, "Todos");
+
   // adicionando o httpService para a comunicação do serviço
   constructor(private http: HttpService) {
     
     this.http.getGrupos().subscribe(
-      data => {
-        // console.log(data)
-        // data.forEach((d) => console.log(d.descricao))
-        data.forEach((d) => this.grupos.push(new Grupo(d.codigo, d.descricao)))
-      }
+        (data) => {
+          this.grupos=[this.grupoTodo, ...data]
+        }
     )    
 
-    // this.grupos.push(new Grupo(1, "Informática"))
-    // this.grupos.push(new Grupo(2, "Música"))
-    // this.grupos.push(new Grupo(3, "Celulares"))
   }
 
   ngOnInit(): void {
